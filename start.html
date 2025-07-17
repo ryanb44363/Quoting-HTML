@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Estimation Actions</title>
+  <style>
+    /* Box-sizing reset for consistent padding/margin behavior */
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Body styles: center content and set background */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Container for the 3 action buttons */
+    .container {
+      display: flex; /* Row layout */
+      justify-content: space-around; /* Even spacing between columns */
+      align-items: center;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 16px; /* Rounded corners */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+      width: 95%;
+      max-width: 400px;
+    }
+
+    /* Each individual action (New, Edit, Report) */
+    .action {
+      display: flex;
+      flex-direction: column; /* Stack icon over label */
+      align-items: center;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 10px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    /* Hover animation: grow slightly and change background */
+    .action:hover {
+      transform: scale(1.05);
+      background-color: #f1f8ff;
+    }
+
+    /* Icon styling */
+    .icon {
+      font-size: 28px; /* Emoji icon size */
+      margin-bottom: 8px;
+    }
+
+    /* Label text under each icon */
+    .label {
+      font-size: 14px;
+      color: #333;
+      font-weight: 500;
+    }
+
+    /* Mobile responsiveness: stack actions vertically on small screens */
+    @media (max-width: 400px) {
+      .container {
+        flex-direction: column;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Main button container -->
+  <div class="container">
+    
+    <!-- New Button -->
+    <div class="action" onclick="alert('Create new estimate')">
+      <div class="icon">📝</div> <!-- Pencil on paper icon -->
+      <div class="label">New</div> <!-- Label below icon -->
+    </div>
+
+    <!-- Edit Button -->
+    <div class="action" onclick="alert('Edit existing estimate')">
+      <div class="icon">✏️</div> <!-- Pencil icon -->
+      <div class="label">Edit</div>
+    </div>
+
+    <!-- Report Button -->
+    <div class="action" onclick="alert('Generate report')">
+      <div class="icon">📊</div> <!-- Bar chart icon -->
+      <div class="label">Report</div>
+    </div>
+    
+  </div>
+</body>
+</html>

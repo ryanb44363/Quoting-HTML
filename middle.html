@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Estimator Categories</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f9;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    /* Search bar */
+    .search-container {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .search-container input {
+      width: 100%;
+      max-width: 400px;
+      padding: 10px 14px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    /* Main grid */
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: space-between;
+    }
+
+    /* Category card */
+    .item {
+      flex: 1 1 calc(33.333% - 10px);
+      background: #fff;
+      border-radius: 10px;
+      padding: 16px;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .item:hover {
+      background-color: #e9f3ff;
+      transform: translateY(-3px);
+    }
+
+    .icon {
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+
+    .label {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    /* Suboptions that appear on category click */
+    .sub-options {
+      margin-top: 10px;
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      text-align: center;
+    }
+
+    .item.open .sub-options {
+      display: flex;
+    }
+
+    .sub-options button {
+      padding: 8px 12px;
+      font-size: 14px;
+      border: none;
+      border-radius: 6px;
+      background-color: #007bff;
+      color: white;
+      transition: background-color 0.2s ease;
+    }
+
+    .sub-options button:hover {
+      background-color: #005dc1;
+    }
+
+    /* Responsive stacking */
+    @media (max-width: 768px) {
+      .item {
+        flex: 1 1 calc(50% - 10px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .item {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Estimator Categories</h1>
+
+  <!-- Search Bar -->
+  <div class="search-container">
+    <input type="text" placeholder="Search categories..." oninput="filterItems(this.value)" />
+  </div>
+
+  <!-- Category Grid -->
+  <div class="grid" id="categoryGrid">
+
+    <!-- Electrical -->
+    <div class="item" data-label="Electrical" onclick="toggleDropdown(this)">
+      <div class="icon">💡</div>
+      <div class="label">Electrical</div>
+      <div class="sub-options">
+        <button onclick="event.stopPropagation()">Install Light Fixture</button>
+        <button onclick="event.stopPropagation()">Replace Outlet</button>
+        <button onclick="event.stopPropagation()">Breaker Panel Upgrade</button>
+      </div>
+    </div>
+
+    <!-- Plumbing -->
+    <div class="item" data-label="Plumbing" onclick="toggleDropdown(this)">
+      <div class="icon">🚰</div>
+      <div class="label">Plumbing</div>
+      <div class="sub-options">
+        <button onclick="event.stopPropagation()">Fix Leak</button>
+        <button onclick="event.stopPropagation()">Install Water Heater</button>
+        <button onclick="event.stopPropagation()">Unclog Drain</button>
+      </div>
+    </div>
+
+    <!-- HVAC -->
+    <div class="item" data-label="HVAC" onclick="toggleDropdown(this)">
+      <div class="icon">❄️</div>
+      <div class="label">HVAC</div>
+      <div class="sub-options">
+        <button onclick="event.stopPropagation()">AC Tune-Up</button>
+        <button onclick="event.stopPropagation()">Replace Thermostat</button>
+        <button onclick="event.stopPropagation()">Clean Ducts</button>
+      </div>
+    </div>
+
+    <!-- Painting -->
+    <div class="item" data-label="Painting" onclick="toggleDropdown(this)">
+      <div class="icon">🎨</div>
+      <div class="label">Painting</div>
+      <div class="sub-options">
+        <button onclick="event.stopPropagation()">Interior Paint</button>
+        <button onclick="event.stopPropagation()">Exterior Paint</button>
+        <button onclick="event.stopPropagation()">Touch Up</button>
+      </div>
+    </div>
+
+    <!-- Cleaning -->
+    <div class="item" data-label="Cleaning" onclick="toggleDropdown(this)">
+      <div class="icon">🧼</div>
+      <div class="label">Cleaning</div>
+      <div class="sub-options">
+        <button onclick="event.stopPropagation()">Deep Clean</button>
+        <button onclick="event.stopPropagation()">Window Clean</button>
+        <button onclick="event.stopPropagation()">Carpet Shampoo</button>
+      </div>
+    </div>
+
+    <!-- Client Info -->
+    <div class="item" data-label="Client Info" onclick="toggleDropdown(this)">
+      <div class="icon">📇</div>
+      <div class="label">Client Info</div>
+      <div class="sub-options">
+        <button onclick="event.stopPropagation()">Name</button>
+        <button onclick="event.stopPropagation()">Phone</button>
+        <button onclick="event.stopPropagation()">Address</button>
+      </div>
+    </div>
+
+    <!-- Photos -->
+    <div class="item" data-label="Photos" onclick="toggleDropdown(this)">
+      <div class="icon">📷</div>
+      <div class="label">Photos</div>
+      <div class="sub-options">
+        <button onclick="event.stopPropagation()">Upload Before Photo</button>
+        <button onclick="event.stopPropagation()">Upload After Photo</button>
+        <button onclick="event.stopPropagation()">Take Live Photo</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Search functionality
+    function filterItems(query) {
+      const items = document.querySelectorAll('.item');
+      const q = query.toLowerCase();
+
+      items.forEach(item => {
+        const label = item.getAttribute('data-label').toLowerCase();
+        item.style.display = label.includes(q) ? 'flex' : 'none';
+      });
+    }
+
+    // Toggle sub-option visibility
+    function toggleDropdown(element) {
+      element.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
