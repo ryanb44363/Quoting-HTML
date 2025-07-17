@@ -26,7 +26,7 @@ A structured form to collect:
 
 ---
 
-## 📱Mobile Optimization
+## Mobile Optimization
 - Fully responsive layout with adaptive columns (3, 2, or 1 depending on screen size)
 - Optimized input elements for touchscreen use
 - Fast, simple interactions for real-time data entry
